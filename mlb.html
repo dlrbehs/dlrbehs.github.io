@@ -30,14 +30,20 @@
     <div id="pre-covid" class="reading"><strong>+918명</strong><small>2019년과 2023년 · p = 0.379</small><p>코로나19 이전 시즌과 비교하면 증가폭이 작아졌다. 30개 구단 중 관중이 늘어난 곳은 15개였다. 구단별 차이의 평균은 5% 유의수준에서 0과 구별되지 않았다.</p></div>
     <div id="trend" class="reading"><strong>+2,228명</strong><small>개정 전후 수준 차이 · p = 0.0073</small><p>개정 전후에 같은 선형 추세를 가정한 모형에서, 2023년부터 경기당 관중 수준이 2,228명 높아진 것으로 추정됐다. 95% 신뢰구간은 735명에서 3,721명이다.</p></div>
   </section>
-  <section class="block"><h2>기준연도를 바꾸자 증가 구단이 26개에서 15개로</h2>
-    <p>2019년을 기준으로 보면 2023년에 관중이 늘어난 구단과 줄어든 구단이 15개씩이었다. 가장 크게 늘어난 토론토를 제외하면 나머지 29개 구단의 평균 증가분은 +409명(p=0.662)이었다. 반면 2022년을 기준으로는 26개 구단에서 증가했고, 같은 기준으로 제외할 극단값도 없었다. 두 비교 모두 구단별 변화량이 사분위 범위(IQR)의 1.5배 경계 밖인지 확인했다. <a href="notebook.html#spread">구단 분포와 극단값 제외 검정</a></p>
-    <p>2025년에도 30개 중 22개 구단의 경기당 관중이 2022년보다 많았다. 구단별 차이의 평균은 <strong>+2,824명</strong>(p=0.00885)이었다. 이 비교로 확인할 수 있는 범위는 두 시즌의 관중 차이까지다. <a href="notebook.html#paired">2022년과 2025년의 대응표본 검정</a></p>
-  </section>
-  <section class="block"><h2>2022년을 뺐을 때 달라진 결론</h2>
-    <p>팬데믹 회복기의 영향을 살피기 위해 2022년을 제외하고 같은 모형을 다시 적합했다. 수준 차이는 <strong>+1,214명</strong>으로 작아졌고 p값은 <strong>0.102</strong>였다. 규칙 개정과 관중 반등은 같은 시기에 관찰됐지만, 상승폭과 통계적 유의성은 2022년을 포함하는지에 따라 달라졌다.</p>
-    <p>개정 후 관측한 시즌은 세 번뿐이고 비교할 대조 리그도 없다. 팀 성적, 티켓 가격, 구장 수용 인원도 모형에 포함하지 않았다. 구단이 흥행 성과를 보고할 때는 전년 대비 증가율과 함께 코로나19 이전 수준과 장기 추세를 제시할 수 있다. <a href="notebook.html#sensitivity">모형별 결과</a></p>
+  <section class="block"><h2>특정 구단이나 시즌을 빼도 결과가 유지될까?</h2>
+    <p>2019년과 2023년 사이에 관중이 가장 많이 늘어난 구단은 토론토였다. 전체 30개 구단의 경기당 평균 증가분은 918명이었고, 토론토를 제외한 29개 구단의 평균은 409명이었다(p=0.662). 2022년과 2023년을 비교했을 때는 같은 기준(사분위 범위의 1.5배)으로 제외할 구단이 없었다. <a href="notebook.html#spread">구단별 변화량과 극단값 제외 검정</a></p>
+    <p>장기 추세를 반영한 모형에서 규칙 개정 전후의 경기당 관중 차이는 <strong>+2,228명</strong>(p=0.0073)이었다. 회복기였던 2022년 한 시즌을 빼자 추정치는 <strong>+1,214명</strong>으로 줄었고, 5% 유의수준에서 차이가 뚜렷하지 않았다(p=0.102). <a href="notebook.html#sensitivity">2022년 포함·제외 모형 비교</a></p>
     <details><summary>회귀모형의 잔차 진단</summary><p>14개 시즌의 Durbin–Watson 통계량은 0.667이었다. 관측 순서상 인접한 잔차의 상관을 고려한 HAC 표준오차로 계산하면 수준 차이는 +2,228명, p=0.0018이었다. 시차 1, Bartlett 가중치, 소표본 보정 해제, 정규근사를 사용했다. 표본이 작아 보조 결과로 해석했다. <a href="notebook.html#diagnostics">진단 코드와 실행 결과</a></p></details>
+  </section>
+  <section id="conclusion" class="block" aria-labelledby="conclusion-title">
+    <h2 id="conclusion-title">결론</h2>
+    <p><strong>리그 전체의 경기당 관중은 코로나19 이전 수준을 넘어섰다. 하지만 2019년보다 관중이 늘어난 구단은 절반이었다.</strong> 2023년 MLB의 경기당 관중은 29,114명으로 2019년의 28,199명보다 많았다.</p>
+    <p>같은 30개 구단의 홈경기당 관중을 비교하면, 2023년에는 전년보다 26곳에서 늘었고 구단별 평균 증가분은 2,551명이었다. 2019년과 비교하면 15곳에서 늘고 15곳에서 줄었다. 평균 차이도 +918명으로 작아졌고 통계적으로 뚜렷하지 않았다(p=0.379). 2025년에도 22개 구단이 2022년 수준을 웃돌았다(평균 +2,824명, p=0.00885). <a href="notebook.html#paired">시즌별 대응표본 검정 결과</a></p>
+    <p>그래서 MLB가 발표한 총관중 9.6% 증가는 <strong>2022년 대비 반등 폭</strong>으로 해석했다. 흥행 성과를 보고할 때 이 수치 옆에 ‘코로나19 이전보다 홈경기당 관중이 늘어난 구단 15/30’도 함께 적으면, 리그 평균만으로는 드러나지 않는 구단 간 차이를 보여줄 수 있다.</p>
+  </section>
+  <section id="limitations" class="block" aria-labelledby="limitations-title">
+    <h2 id="limitations-title">한계</h2>
+    <p>개정 후 관측 기간은 세 시즌(2023~2025년)이고, 같은 기간에 규칙을 바꾸지 않은 대조 리그와 비교하지 못했다. 팀 성적·티켓 가격·구장 수용 인원도 통제하지 않아, 관중 증가분 중 얼마가 규칙 개정의 몫인지는 이 자료로 가려낼 수 없다.</p>
   </section>
   <section class="block"><h2>분석 자료</h2><div class="resources"><a class="button" href="notebook.html">분석 코드와 실행 결과 <span aria-hidden="true">→</span></a><a href="https://github.com/dlrbehs/mlb-rule-analysis">MLB 규칙 분석 저장소와 README ↗</a><a href="mlb-analysis.ipynb" download>실행용 노트북 다운로드</a><a href="https://sabr.org/lahman-database/">원자료 · SABR Lahman Database ↗</a></div><p class="caption">2025년판 Teams.csv · Python, pandas, SciPy, statsmodels, Matplotlib</p></section>
 </main><footer><div class="wrap"><a href="index.html">← GyuDon Lee</a><a href="#top">맨 위로 ↑</a></div></footer></body></html>

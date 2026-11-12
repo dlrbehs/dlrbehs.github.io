@@ -72,11 +72,12 @@ nav a:hover, .reader-nav a:hover, footer a:hover { text-decoration: underline; }
   position: relative; isolation: isolate; display: flex; flex-direction: column;
   align-items: center; justify-content: space-between; text-align: center;
   min-height: max(550px, 100vh); min-height: max(550px, 100svh);
-  padding: clamp(90px, 14vh, 170px) 20px clamp(28px, 6.5vh, 80px);
+  padding: clamp(76px, min(32vh, 60vh - 16vw), 360px) 20px clamp(28px, 6.5vh, 80px);
+  padding-top: clamp(76px, min(32svh, 60svh - 16vw), 360px);
   background: #bfc4cb; overflow: hidden;
 }
-.hero-art { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; object-fit: cover; object-position: 50% 66%; }
-.hero picture { display: contents; }
+.hero picture { position: absolute; inset: 0; z-index: -1; }
+.hero-art { width: 100%; height: 100%; object-fit: cover; object-position: 50% 66%; }
 .hero h1 { font-size: clamp(40px, 4.2vw, 66px); font-weight: 550; line-height: 1.04; letter-spacing: -.045em; }
 .hero-heading p { margin-top: 12px; color: #101216; font-size: clamp(16px, 1.3vw, 20px); font-weight: 550; }
 .hero-actions { display: flex; justify-content: center; gap: 16px; width: min(100%, 474px); }
@@ -193,7 +194,7 @@ thead { background: var(--surface); }
   .brand { font-size: 18px; }
   nav { gap: 2px; }
   nav a { padding-inline: 7px; font-size: 13px; }
-  .hero { min-height: max(500px, 100vh); min-height: max(500px, 100svh); padding-top: clamp(96px, 16svh, 152px); padding-bottom: max(30px, env(safe-area-inset-bottom)); }
+  .hero { min-height: max(500px, 100vh); min-height: max(500px, 100svh); padding-bottom: max(30px, env(safe-area-inset-bottom)); }
   .hero-art { object-position: 56% 67%; }
   .hero-actions { max-width: 380px; gap: 10px; }
   .hero-actions .button { padding-inline: 8px; }
