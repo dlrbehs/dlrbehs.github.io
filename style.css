@@ -78,7 +78,7 @@ nav a:hover, .reader-nav a:hover, footer a:hover { text-decoration: underline; }
 .hero-art { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; object-fit: cover; object-position: 50% 66%; }
 .hero picture { display: contents; }
 .hero h1 { font-size: clamp(40px, 4.2vw, 66px); font-weight: 550; line-height: 1.04; letter-spacing: -.045em; }
-.hero-heading p { margin-top: 12px; font-size: clamp(16px, 1.3vw, 20px); font-weight: 500; }
+.hero-heading p { margin-top: 12px; color: #101216; font-size: clamp(16px, 1.3vw, 20px); font-weight: 550; }
 .hero-actions { display: flex; justify-content: center; gap: 16px; width: min(100%, 474px); }
 .button {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 46px;
@@ -174,6 +174,12 @@ thead { background: var(--surface); }
 .cell .result { color: var(--muted); }
 .cell h3 { margin-block: 16px 8px; font-size: 16px; }
 
+@media (min-width: 761px) {
+  .feature, .about-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; }
+  .project-photo, .bio { grid-column: span 7; }
+  .project-photo { margin-right: clamp(8px, 2.5vw, 40px); }
+  .project-copy, .background { grid-column: span 5; }
+}
 @media (max-width: 760px) {
   .feature, .about-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .about-grid { gap: 40px; }
