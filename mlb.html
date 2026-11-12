@@ -8,11 +8,12 @@
 <main id="main" class="wrap article">
   <p class="kicker"><span class="dash"></span> MLB ATTENDANCE STUDY</p>
   <h1>규칙이 관중을 불렀는가?</h1>
-  <p class="lead">피치 타이머와 수비 시프트 제한을 도입한 2023년, MLB 총관중은 전년보다 9.6% 늘었다. 팬데믹 이후 관중석이 다시 차던 시기에, 규칙 개정과 함께 나타난 변화는 어느 정도였을까?</p>
+  <p class="lead">2024년 6월, 토론토에서 블루제이스 경기를 보고 경기 시간과 관중 기록을 찾아봤다. MLB가 발표한 2023년 총관중 증가율은 9.6%였다. 그런데 비교 대상인 2022년의 경기당 관중은 2019년보다 5.8% 적었다. 코로나19 이전을 기준으로 삼아도 관중이 늘었다고 말할 수 있을까?</p>
   <div class="study-meta"><span><strong>과목</strong> 데이터과학및분석소개</span><span><strong>발표</strong> 이규돈</span><span><strong>데이터</strong> MLB 30개 구단 · 2010–2025</span></div>
   <section class="block">
     <h2>한 시즌의 총관중을 경기당 관중으로</h2>
-    <p>시즌마다 홈경기 수가 달라 총관중만으로는 관람 수요를 비교하기 어렵다. 구단별 관중을 홈경기 수로 나눈 뒤 같은 구단끼리 비교했다. 리그 추세를 볼 때는 전체 관중을 전체 홈경기 수로 나눴다. 구단명이 바뀐 애슬레틱스도 하나의 구단으로 연결하기 위해 <code>franchID</code>를 사용했다.</p>
+    <p>Lahman 자료로 계산한 2022년 대비 총관중 증가율은 9.59%였다. 구단끼리 비교할 때는 각 구단의 관중을 홈경기 수로 나눴다. 리그 전체의 경기당 관중은 전체 관중을 전체 홈경기 수로 나눠 구했다. 이 방식의 2023년 값은 29,114명이고 MLB가 발표한 경기당 평균은 29,295명이다. <a href="https://www.mlb.com/press-release/press-release-mlb-attendance-surpasses-70-million-and-records-largest-percentage">MLB 발표 원문 ↗</a></p>
+    <p>애슬레틱스의 팀 코드가 OAK에서 ATH로 바뀌면서 2022년과 2025년 자료를 <code>teamID</code>로 연결하면 29개 구단만 남았다. 프랜차이즈 식별자 <code>franchID</code>를 사용해 같은 30개 구단을 비교했다. <a href="notebook.html#identifiers">구단 매칭 결과</a></p>
     <figure class="case-chart"><img src="attendance.png" width="1260" height="540" alt="경기당 평균 관중이 2019년 28,199명에서 2022년 26,567명으로 낮아졌다가 2023년 29,114명으로 반등했다."><figcaption>리그 경기당 평균 관중. 무관중·입장 제한이 있었던 2020년과 2021년은 추세 분석에서 제외했다.</figcaption></figure>
     <details><summary>그래프의 연도별 수치 보기</summary><div class="tablewrap"><table><caption>리그 경기당 평균 관중, 1명 단위 반올림</caption><thead><tr><th>시즌</th><th>관중(명)</th><th>시즌</th><th>관중(명)</th></tr></thead><tbody>
     <tr><td>2010</td><td>30,063</td><td>2017</td><td>29,906</td></tr><tr><td>2011</td><td>30,229</td><td>2018</td><td>28,660</td></tr><tr><td>2012</td><td>30,806</td><td>2019</td><td>28,199</td></tr><tr><td>2013</td><td>30,451</td><td>2022</td><td>26,567</td></tr><tr><td>2014</td><td>30,346</td><td>2023</td><td>29,114</td></tr><tr><td>2015</td><td>30,350</td><td>2024</td><td>29,374</td></tr><tr><td>2016</td><td>30,131</td><td>2025</td><td>29,387</td></tr>
@@ -21,17 +22,22 @@
   <section class="block"><h2>어느 시점과 비교할까?</h2>
     <p>두 시즌을 직접 비교할 때는 30개 구단의 경기당 관중 차이를 대응표본 t 검정으로 살폈다. 장기 추세와 비교할 때는 리그 전체의 연도별 관중에 회귀모형을 적용했다.</p>
     <div class="study-tabs" aria-label="비교 기준 선택" hidden>
-      <button type="button" data-panel="prior" aria-controls="prior" aria-pressed="false">전년 대비</button>
+      <button type="button" data-panel="prior" aria-controls="prior" aria-pressed="true">전년 대비</button>
       <button type="button" data-panel="pre-covid" aria-controls="pre-covid" aria-pressed="false">코로나19 이전 대비</button>
-      <button type="button" data-panel="trend" aria-controls="trend" aria-pressed="true">장기 추세 대비</button>
+      <button type="button" data-panel="trend" aria-controls="trend" aria-pressed="false">장기 추세 대비</button>
     </div>
-    <div id="prior" class="reading"><strong>+2,551명</strong><small>2022년과 2023년 · p &lt; 0.001</small><p>같은 구단의 두 시즌을 짝지으면 홈경기 한 경기당 평균 2,551명이 늘었다. 비교 기준인 2022년의 리그 경기당 관중은 2019년보다 5.8% 낮았다.</p></div>
+    <div id="prior" class="reading"><strong>+2,551명</strong><small>2022년과 2023년 · p = 0.000103</small><p>같은 구단의 두 시즌을 짝지으면 홈경기 한 경기당 평균 2,551명이 늘었다. 30개 구단 중 26개에서 관중이 증가했다. <a href="notebook.html#paired">대응표본 검정 결과</a></p></div>
     <div id="pre-covid" class="reading"><strong>+918명</strong><small>2019년과 2023년 · p = 0.379</small><p>코로나19 이전 시즌과 비교하면 증가폭이 작아졌다. 30개 구단 중 관중이 늘어난 곳은 15개였다. 구단별 차이의 평균은 5% 유의수준에서 0과 구별되지 않았다.</p></div>
     <div id="trend" class="reading"><strong>+2,228명</strong><small>개정 전후 수준 차이 · p = 0.0073</small><p>개정 전후에 같은 선형 추세를 가정한 모형에서, 2023년부터 경기당 관중 수준이 2,228명 높아진 것으로 추정됐다. 95% 신뢰구간은 735명에서 3,721명이다.</p></div>
   </section>
+  <section class="block"><h2>기준연도를 바꾸자 증가 구단이 26개에서 15개로</h2>
+    <p>2019년을 기준으로 보면 2023년에 관중이 늘어난 구단과 줄어든 구단이 15개씩이었다. 가장 크게 늘어난 토론토를 제외하면 나머지 29개 구단의 평균 증가분은 +409명(p=0.662)이었다. 반면 2022년을 기준으로는 26개 구단에서 증가했고, 같은 기준으로 제외할 극단값도 없었다. 두 비교 모두 구단별 변화량이 사분위 범위(IQR)의 1.5배 경계 밖인지 확인했다. <a href="notebook.html#spread">구단 분포와 극단값 제외 검정</a></p>
+    <p>2025년에도 30개 중 22개 구단의 경기당 관중이 2022년보다 많았다. 구단별 차이의 평균은 <strong>+2,824명</strong>(p=0.00885)이었다. 이 비교로 확인할 수 있는 범위는 두 시즌의 관중 차이까지다. <a href="notebook.html#paired">2022년과 2025년의 대응표본 검정</a></p>
+  </section>
   <section class="block"><h2>2022년을 뺐을 때 달라진 결론</h2>
     <p>팬데믹 회복기의 영향을 살피기 위해 2022년을 제외하고 같은 모형을 다시 적합했다. 수준 차이는 <strong>+1,214명</strong>으로 작아졌고 p값은 <strong>0.102</strong>였다. 규칙 개정과 관중 반등은 같은 시기에 관찰됐지만, 상승폭과 통계적 유의성은 2022년을 포함하는지에 따라 달라졌다.</p>
-    <p style="margin-top:12px">개정 후 관측한 시즌은 세 번뿐이고 비교할 대조 리그도 없다. 티켓 가격, 구장 수용 인원, 구단별 마케팅의 영향까지 분리하기는 어렵다. 구단이 흥행 성과를 보고할 때는 전년 대비 증가율과 함께 코로나19 이전 수준과 장기 추세를 제시할 수 있다.</p>
+    <p style="margin-top:12px">개정 후 관측한 시즌은 세 번뿐이고 비교할 대조 리그도 없다. 팀 성적, 티켓 가격, 구장 수용 인원도 모형에 포함하지 않았다. 구단이 흥행 성과를 보고할 때는 전년 대비 증가율과 함께 코로나19 이전 수준과 장기 추세를 제시할 수 있다. <a href="notebook.html#sensitivity">모형별 결과</a></p>
+    <details><summary>회귀모형의 잔차 진단</summary><p>14개 시즌의 Durbin–Watson 통계량은 0.667이었다. 관측 순서상 인접한 잔차의 상관을 고려한 HAC 표준오차로 계산하면 수준 차이는 +2,228명, p=0.0018이었다. 시차 1, Bartlett 가중치, 소표본 보정 해제, 정규근사를 사용했다. 표본이 작아 보조 결과로 해석했다. <a href="notebook.html#diagnostics">진단 코드와 실행 결과</a></p></details>
   </section>
-  <section class="block"><h2>분석 자료</h2><div class="resources"><a class="button" href="notebook.html">분석 코드와 실행 결과 <span aria-hidden="true">→</span></a><a href="https://sabr.org/lahman-database/">원자료 · SABR Lahman Database ↗</a></div><p class="caption">2025년판 Teams.csv · Python, pandas, SciPy, statsmodels, Matplotlib</p></section>
+  <section class="block"><h2>분석 자료</h2><div class="resources"><a class="button" href="notebook.html">분석 코드와 실행 결과 <span aria-hidden="true">→</span></a><a href="https://github.com/dlrbehs/dlrbehs.github.io/blob/main/README.md">프로젝트 README ↗</a><a href="mlb-analysis.ipynb" download>실행용 노트북 다운로드</a><a href="https://sabr.org/lahman-database/">원자료 · SABR Lahman Database ↗</a></div><p class="caption">2025년판 Teams.csv · Python, pandas, SciPy, statsmodels, Matplotlib</p></section>
 </main><footer style="background:var(--night)"><div class="wrap"><a href="index.html">← GyuDon Lee</a><a href="#top">맨 위로 ↑</a></div></footer></body></html>
