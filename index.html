@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#16161b">
+  <title>GyuDon Lee · 데이터 분석 포트폴리오</title>
+  <meta name="description" content="성균관대학교 컴퓨터교육과 이규돈의 데이터 분석 포트폴리오. MLB 규칙 개정 전후의 관중 변화를 분석했습니다.">
+  <link rel="stylesheet" href="style.css"><script defer src="field.js"></script>
+</head>
+<body id="top">
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
+  <header class="topbar"><div class="wrap navrow">
+    <a class="brand" href="#top" aria-label="이규돈 포트폴리오 처음으로"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>GyuDon Lee</a>
+    <nav aria-label="주 메뉴"><a href="#projects">프로젝트</a><a href="#about">소개</a><a class="github" href="https://github.com/dlrbehs">GitHub <span aria-hidden="true">↗</span></a></nav>
+  </div></header>
+  <main id="main">
+    <section class="hero"><div class="wrap cover">
+      <div class="intro">
+        <p class="kicker"><span class="dash"></span> DATA ANALYST PORTFOLIO</p>
+        <h1>GyuDon<br><span class="last-name">Lee</span><span class="period">.</span></h1>
+        <p class="intro-copy">성균관대학교 컴퓨터교육과에서 공부하며<br>데이터 분석가를 준비하는 <strong>이규돈</strong>입니다.</p>
+        <a class="button" href="#projects">프로젝트 보기 <span aria-hidden="true">↓</span></a>
+      </div>
+      <figure class="ball-figure">
+        <div class="field-head"><span>FIG. 01</span><span>BASEBALL GEOMETRY</span></div>
+        <div class="ball-stage"><canvas id="baseball" role="img" aria-label="보랏빛 점과 살구색 실밥으로 그린 입체 야구공"></canvas></div>
+        <figcaption class="field-foot"><span>POINT CLOUD</span><label for="rotation">회전</label><input id="rotation" type="range" min="-180" max="180" value="25" step="1"><output for="rotation" id="rotation-value">25°</output></figcaption>
+      </figure>
+    </div></section>
+    <section id="projects" class="projects paper"><div class="wrap">
+      <div class="section-head"><div><p class="kicker"><span class="dash"></span> SELECTED WORK</p><h2>프로젝트</h2></div></div>
+      <a href="mlb.html" class="project-card">
+        <div class="photo"><img src="stadium.webp" width="1500" height="1125" alt="관중석에서 바라본 토론토 야구장과 외야 쪽의 CN 타워"><span>MLB ATTENDANCE STUDY</span></div>
+        <div class="project-summary"><p class="project-type">스포츠 데이터 분석</p>
+          <h3>규칙이 관중을<br> 불렀는가?</h3>
+          <p>2023년 MLB 규칙 개정 뒤 관중은 늘었습니다. 전년, 코로나19 이전 시즌, 장기 추세를 각각 기준으로 삼아 증가폭을 비교했습니다.</p>
+          <ul class="tags"><li>Python</li><li>대응표본 t 검정</li><li>시계열 회귀</li></ul>
+          <span class="case-link">분석 자세히 보기 <span aria-hidden="true">↗</span></span>
+        </div>
+      </a>
+    </div></section>
+    <section id="about" class="about paper"><div class="wrap about-grid">
+      <div><p class="kicker"><span class="dash"></span> ABOUT</p><h2>이규돈</h2><p class="about-name">GyuDon Lee</p></div>
+      <dl class="profile"><div><dt>학력</dt><dd>성균관대학교 컴퓨터교육과<br><small>3학년 2학기 재학</small></dd></div>
+        <div><dt>희망 직무</dt><dd>데이터 분석가</dd></div>
+        <div><dt>프로젝트에서 사용한 도구</dt><dd>Python, pandas, SciPy,<br class="mobile-only"> statsmodels, Matplotlib</dd></div>
+        <div><dt>GitHub</dt><dd><a href="https://github.com/dlrbehs">@dlrbehs ↗</a></dd></div>
+      </dl>
+    </div></section>
+  </main>
+  <footer><div class="wrap"><span>GyuDon Lee</span><a href="#top">맨 위로 ↑</a></div></footer>
+</body></html>
