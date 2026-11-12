@@ -10,3 +10,12 @@
 @media(max-width:600px){.wrap{width:calc(100% - 38px)}.navrow{min-height:61px}.brand{font-size:17px;gap:8px}.brand-mark{transform:scale(.82);transform-origin:left center;margin-right:-3px}.topbar nav{gap:13px;font-size:12px}.github{padding-left:11px}.github span{margin-left:0}.cover{grid-template-columns:1fr;gap:34px;padding-block:41px 33px}.intro h1{font-size:clamp(63px,14.8vw,90px);margin:17px 0;line-height:1}.intro h1 br{display:none}.intro h1 br:after{content:" "}.intro h1 .last-name:before{content:" "}.intro-copy{font-size:15px}.button{margin-top:16px}.ball-figure{max-width:440px;width:100%;margin:auto}#baseball{height:clamp(220px,65vw,280px)}.field-head,.field-foot{padding-block:6px}.projects{padding-block:44px}.section-head{margin-bottom:18px}.project-card,.about-grid{grid-template-columns:1fr;gap:17px}.photo{min-height:0;aspect-ratio:1.7}.project-card{padding:16px 0 22px}.project-summary{padding:0}.project-summary h3 br{display:none}.project-summary h3{font-size:32px;margin:7px 0 12px}.about-grid{gap:20px}.profile>div{grid-template-columns:34% 1fr}.mobile-only{display:block}.study-tabs button{font-size:13px;padding:8px 11px}.article .block{margin-top:32px}.article{padding-block:36px}.article pre{padding:12px}.resources{gap:15px}.section-index{font-size:12px}}
 @media(max-width:350px){.brand{font-size:15px}.topbar nav{gap:9px}.github{padding-left:7px}.wrap{width:calc(100% - 28px)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+.education-history {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.education-history li + li { margin-top: 14px; }
+.education-history strong, .education-history span, .education-history small { display: block; }
+.education-history span { font-weight: 400; }
