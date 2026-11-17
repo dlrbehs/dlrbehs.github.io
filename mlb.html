@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>규칙이 관중을 불렀는가? · GyuDon Lee</title>
   <meta name="description" content="2023년 MLB 경기당 관중이 증가한 구단은 2022년 기준 26곳, 2019년 기준 15곳이었다. 비교 기준별 결과와 흥행 성과 보고에 활용할 구단별 검토표를 제시합니다.">
-  <link rel="stylesheet" href="style.css?v=mlb-report-1">
-  <script defer src="study.js"></script>
+  <link rel="stylesheet" href="style.css?v=verified-report-2">
+  <script defer src="study.js?v=summary-2"></script>
 </head>
 <body class="paper" id="top">
 <a class="skip" href="#main">본문으로 건너뛰기</a>
@@ -18,11 +18,12 @@
 
   <section id="summary" class="study-summary" aria-labelledby="summary-title">
     <h2 id="summary-title">핵심 요약</h2>
-    <p><strong>2023년 경기당 관중이 증가한 구단은 2022년 기준 26곳, 2019년 기준 15곳이었다.</strong> 같은 30개 구단을 비교했을 때 경기당 관중 차이의 평균은 각각 +2,551명/경기와 +918명/경기였다.</p>
-    <p>장기 추세를 반영한 회귀모형의 수준 차이 추정치는 2022년 포함 여부에 따라 +2,228명/경기에서 +1,214명/경기로 달라져, 규칙 개정의 기여도는 추가 검증이 필요하다. 성과 보고에는 두 기준연도의 경기당 관중 변화율과 증가 구단 수를 함께 제시할 것을 제안한다.</p>
+    <p><strong>2023년 경기당 관중이 증가한 구단은 2022년 기준 <span data-key="comparisons.2022-2023.increased_teams" data-format="integer">26</span>곳, 2019년 기준 <span data-key="comparisons.2019-2023.increased_teams" data-format="integer">15</span>곳이었다.</strong> 같은 <span data-key="comparisons.2022-2023.n_teams" data-format="integer">30</span>개 구단을 비교했을 때 경기당 관중 차이의 평균은 각각 <span data-key="comparisons.2022-2023.mean_difference" data-format="signed">+2,551</span>명/경기와 <span data-key="comparisons.2019-2023.mean_difference" data-format="signed">+918</span>명/경기였다.</p>
+    <p>장기 추세를 반영한 회귀모형의 수준 차이 추정치는 2022년 포함 여부에 따라 <span data-key="models.primary.level_difference" data-format="signed">+2,228</span>명/경기에서 <span data-key="models.without_2022.level_difference" data-format="signed">+1,214</span>명/경기로 달라져, 규칙 개정의 기여도는 추가 검증이 필요하다. 성과 보고에는 두 기준연도의 경기당 관중 변화율과 증가 구단 수를 함께 제시할 것을 제안한다.</p>
     <div class="resources"><a href="#application">성과 보고에 활용하기 ↓</a><a href="notebook.html">분석 코드와 실행 결과 ↗</a></div>
   </section>
-  <div class="study-meta"><span><strong>과목</strong> 데이터과학및분석소개</span><span><strong>분석자</strong> 이규돈</span><span><strong>데이터</strong> MLB 30개 구단 · 2010–2025</span></div>
+  <div class="study-meta"><span><strong>수행 기간</strong> 2026.09–2026.10</span><span><strong>형태</strong> 개인 프로젝트</span><span><strong>본인 기여</strong> 이규돈 · 개인 분석 수행</span><span><strong>과목</strong> 데이터과학및분석소개</span><span><strong>데이터</strong> MLB 30개 구단 · 2010–2025</span><span><strong>후속 보완</strong> 2026.11 · 재현성·검증·결과 보고</span></div>
+  <p class="caption">수업에서 제공받은 데이터 없이 공개된 Lahman 자료를 사용했다.</p>
   <details><summary>분석을 시작한 계기</summary><p>2024년 6월, 토론토에서 블루제이스 경기를 보고 경기 시간과 관중 기록을 찾아봤다. MLB가 발표한 2023년 총관중 증가율은 9.6%였다. 그런데 Lahman 자료에서 2022년의 리그 경기당 관중은 2019년보다 5.79% 적었다. 코로나19 이전을 기준으로 삼아도 관중이 늘었다고 말할 수 있을까?</p></details>
 
   <section id="application" class="block" aria-labelledby="application-title">
@@ -34,8 +35,8 @@
         <caption>Lahman 기준. 리그 경기당 관중은 전체 관중 ÷ 전체 홈경기 수</caption>
         <thead><tr><th scope="col">비교</th><th scope="col">기준연도<br>리그 관중(명/경기)</th><th scope="col">2023년<br>리그 관중(명/경기)</th><th scope="col">리그 변화율</th><th scope="col">경기당 관중<br>증가 구단 수</th></tr></thead>
         <tbody>
-          <tr><th scope="row">2022 → 2023</th><td>26,567</td><td>29,114</td><td>+9.59%</td><td>26 / 30개</td></tr>
-          <tr><th scope="row">2019 → 2023</th><td>28,199</td><td>29,114</td><td>+3.25%</td><td>15 / 30개</td></tr>
+          <tr><th scope="row">2022 → 2023</th><td><span data-key="comparisons.2022-2023.league_baseline" data-format="integer">26,567</span></td><td><span data-key="comparisons.2022-2023.league_target" data-format="integer">29,114</span></td><td><span data-key="comparisons.2022-2023.league_change_pct" data-format="percent">+9.59%</span></td><td><span data-key="comparisons.2022-2023.increased_teams" data-format="integer">26</span> / <span data-key="comparisons.2022-2023.n_teams" data-format="integer">30</span>개</td></tr>
+          <tr><th scope="row">2019 → 2023</th><td><span data-key="comparisons.2019-2023.league_baseline" data-format="integer">28,199</span></td><td><span data-key="comparisons.2019-2023.league_target" data-format="integer">29,114</span></td><td><span data-key="comparisons.2019-2023.league_change_pct" data-format="percent">+3.25%</span></td><td><span data-key="comparisons.2019-2023.increased_teams" data-format="integer">15</span> / <span data-key="comparisons.2019-2023.n_teams" data-format="integer">30</span>개</td></tr>
         </tbody>
       </table>
     </div>
@@ -120,30 +121,46 @@
     </table></div></details>
   </section>
 
-  <section id="comparisons" class="block">
-    <h2>비교 기준에 따라 달라진 결과</h2>
-    <p>두 시즌을 직접 비교할 때는 30개 구단의 경기당 관중 차이에 대응표본 t 검정을 적용했다. 추세 모형은 2010~2025년 중 2020·2021년을 제외한 14개 시즌의 리그 경기당 관중을 사용했다.</p>
-    <div class="study-tabs" aria-label="비교 기준 선택" hidden>
-      <button type="button" data-panel="prior" aria-controls="prior" aria-pressed="true">전년 대비</button>
-      <button type="button" data-panel="pre-covid" aria-controls="pre-covid" aria-pressed="false">코로나19 이전 대비</button>
-      <button type="button" data-panel="trend" aria-controls="trend" aria-pressed="false">추세 모형</button>
+  <section id="comparisons" class="block" aria-labelledby="comparisons-title">
+    <h2 id="comparisons-title">비교 기준에 따라 달라진 결과</h2>
+    <p>동일한 30개 전체 구단을 연결해 경기당 관중의 시즌 간 차이를 계산했다. 아래 평균과 증가 구단 수는 이 구단들의 관측 결과이며, 표본에서 전체 구단으로 확대한 값이 아니다.</p>
+    <div class="comparison-grid">
+      <section id="prior" class="reading" aria-labelledby="prior-title">
+        <h3 id="prior-title">전년 대비 · 2022 → 2023</h3>
+        <strong><span data-key="comparisons.2022-2023.mean_difference" data-format="signed">+2,551</span><span class="reading-unit">명/경기</span></strong>
+        <small>구단별 차이의 평균 · 증가 <span data-key="comparisons.2022-2023.increased_teams" data-format="integer">26</span> / <span data-key="comparisons.2022-2023.n_teams" data-format="integer">30</span>개 구단</small>
+        <p>2022년과 비교하면 <span data-key="comparisons.2022-2023.n_teams" data-format="integer">30</span>개 중 <span data-key="comparisons.2022-2023.increased_teams" data-format="integer">26</span>개 구단의 경기당 관중이 증가했다.</p>
+        <p class="inference">모형 조건부 95% 신뢰구간<br><span data-key="comparisons.2022-2023.ci95_low" data-format="signed">+1,390</span> ~ <span data-key="comparisons.2022-2023.ci95_high" data-format="signed">+3,713</span>명/경기<br>대응표본 t 검정 p = <span data-key="comparisons.2022-2023.p_value" data-format="pvalue">0.000103</span></p>
+      </section>
+      <section id="pre-covid" class="reading" aria-labelledby="pre-covid-title">
+        <h3 id="pre-covid-title">코로나19 이전 대비 · 2019 → 2023</h3>
+        <strong><span data-key="comparisons.2019-2023.mean_difference" data-format="signed">+918</span><span class="reading-unit">명/경기</span></strong>
+        <small>구단별 차이의 평균 · 증가 <span data-key="comparisons.2019-2023.increased_teams" data-format="integer">15</span> / <span data-key="comparisons.2019-2023.n_teams" data-format="integer">30</span>개 구단</small>
+        <p>코로나19 이전과 비교하면 <span data-key="comparisons.2019-2023.n_teams" data-format="integer">30</span>개 중 <span data-key="comparisons.2019-2023.increased_teams" data-format="integer">15</span>개 구단의 경기당 관중이 증가했다.</p>
+        <p class="inference">모형 조건부 95% 신뢰구간<br><span data-key="comparisons.2019-2023.ci95_low" data-format="signed">-1,185</span> ~ <span data-key="comparisons.2019-2023.ci95_high" data-format="signed">+3,022</span>명/경기<br>대응표본 t 검정 p = <span data-key="comparisons.2019-2023.p_value" data-format="pvalue">0.379</span></p>
+      </section>
     </div>
-    <div id="prior" class="reading"><strong>+2,551명/경기</strong><small>구단별 차이의 평균 · 2022 → 2023 · p = 0.000103</small><p>같은 구단의 두 시즌 경기당 관중 차이를 30개 구단에 걸쳐 평균했다. 26개 구단에서 경기당 관중이 증가했다. <a href="notebook.html#paired">대응표본 검정 결과</a></p></div>
-    <div id="pre-covid" class="reading"><strong>+918명/경기</strong><small>구단별 차이의 평균 · 2019 → 2023 · p = 0.379</small><p>코로나19 이전 시즌과 비교하면 경기당 관중이 늘어난 구단과 줄어든 구단이 15개씩이었다. 구단별 차이의 평균은 5% 유의수준에서 0과 구별되지 않았다. <a href="notebook.html#paired">대응표본 검정 결과</a></p></div>
-    <div id="trend" class="reading"><strong>+2,228명/경기</strong><small>리그 수준 차이 추정치 · 공통 선형 추세 모형 · p = 0.0073</small><p>개정 전후에 같은 선형 추세를 가정한 모형에서 2023년 이후의 리그 경기당 관중 수준 차이를 추정했다. 95% 신뢰구간은 +735~+3,721명/경기다. <a href="notebook.html#diagnostics">모형과 잔차 진단 결과</a></p></div>
-    <p>2022년과 2025년을 짝지어 비교하면 구단별 경기당 관중 차이의 평균은 +2,824명/경기(p=0.00885)이고, 증가 구단은 22/30개였다. 이 비교는 두 시즌 사이의 변화량을 보여준다. <a href="notebook.html#paired">2025년까지의 비교 결과</a></p>
+    <p class="caption">관중 차이와 구간은 정수로 반올림했다. <a href="notebook.html#paired">대응표본 검정 코드와 결과</a></p>
+    <p>p값과 신뢰구간은 구단 간 차이의 독립성과 차이 분포에 대한 t 검정의 가정 등 확률모형이 적절하다는 조건 아래 해석한다. 이 30개 구단에서 계산한 관측 평균의 표본오차가 아니라, 가정한 확률적 변화 과정에 대한 추론이다. 리그 공통 충격 등으로 구단 간 차이가 연관될 수 있으므로 보조적 추론으로 제시한다. 2019년 기준 구간이 0을 포함한다는 것은 가정 아래 평균 차이를 0과 구별할 근거가 충분하지 않다는 뜻이며, 변화가 없다는 증명은 아니다.</p>
+    <p>2022년과 2025년을 짝지어 비교하면 구단별 경기당 관중 차이의 평균은 <span data-key="comparisons.2022-2025.mean_difference" data-format="signed">+2,824</span>명/경기(p = <span data-key="comparisons.2022-2025.p_value" data-format="pvalue">0.00885</span>)이고, 증가 구단은 <span data-key="comparisons.2022-2025.increased_teams" data-format="integer">22</span> / <span data-key="comparisons.2022-2025.n_teams" data-format="integer">30</span>개였다. 이 비교는 두 시즌 사이의 변화량을 보여주며, 같은 추론상의 한계가 적용된다. <a href="notebook.html#paired">2025년까지의 비교 결과</a></p>
+  </section>
+
+  <section id="trend" class="block" aria-labelledby="trend-title">
+    <h2 id="trend-title">보조분석 · 장기 추세를 반영하면?</h2>
+    <p>2010~2025년 중 2020·2021년을 제외한 14개 시즌의 리그 경기당 관중을 사용했다. 개정 전후에 같은 선형 추세를 가정한 회귀모형으로 2023년 이후의 수준 차이를 추정했다.</p>
+    <div class="reading"><strong><span data-key="models.primary.level_difference" data-format="signed">+2,228</span><span class="reading-unit">명/경기</span></strong><small>리그 수준 차이 추정치 · 공통 선형 추세 모형</small><p>모형 조건부 95% 신뢰구간은 <span data-key="models.primary.ci95_low" data-format="signed">+735</span> ~ <span data-key="models.primary.ci95_high" data-format="signed">+3,721</span>명/경기이며, p = <span data-key="models.primary.p_value" data-format="pvalue">0.00727</span>이다. 이 추정치는 규칙 개정의 인과효과로 해석할 수 없다. <a href="notebook.html#diagnostics">모형과 잔차 진단 결과</a></p></div>
   </section>
 
   <section class="block">
     <h2>특정 구단이나 시즌을 빼도 결과가 유지될까?</h2>
     <p>2019년과 2023년 사이에 경기당 관중이 가장 많이 늘어난 구단은 토론토였다. 전체 30개 구단의 차이 평균은 +918명/경기였고, 토론토를 제외한 29개 구단의 평균은 +409명/경기였다(p=0.662). 2022년과 2023년을 비교했을 때는 같은 기준(사분위 범위의 1.5배)으로 제외할 구단이 없었다. <a href="notebook.html#spread">구단별 변화량과 극단값 제외 검정</a></p>
-    <p>공통 선형 추세를 가정한 모형의 수준 차이는 <strong>+2,228명/경기</strong>(p=0.0073)였다. 2022년 한 시즌을 빼고 다시 적합하면 <strong>+1,214명/경기</strong>로 줄었고, 5% 유의수준에서 차이가 뚜렷하지 않았다(p=0.102). 추세 모형 결과를 보고할 때는 이 민감도도 함께 제시한다. <a href="notebook.html#sensitivity">2022년 포함·제외 모형 비교</a></p>
+    <p>공통 선형 추세를 가정한 모형의 수준 차이는 <strong><span data-key="models.primary.level_difference" data-format="signed">+2,228</span>명/경기</strong>(p = <span data-key="models.primary.p_value" data-format="pvalue">0.00727</span>)였다. 2022년 한 시즌을 빼고 다시 적합하면 <strong><span data-key="models.without_2022.level_difference" data-format="signed">+1,214</span>명/경기</strong>로 줄었고, 모형 가정 아래 5% 유의수준에서 차이가 뚜렷하지 않았다(p = <span data-key="models.without_2022.p_value" data-format="pvalue">0.102</span>). 추세 모형 결과를 보고할 때는 이 민감도도 함께 제시한다. <a href="notebook.html#sensitivity">2022년 포함·제외 모형 비교</a></p>
     <details><summary>회귀모형의 잔차 진단</summary><p>14개 시즌의 Durbin–Watson 통계량은 0.667이었다. 관측 순서상 인접한 잔차의 상관을 고려한 HAC 표준오차로 계산하면 수준 차이는 +2,228명/경기, p=0.0018이었다. 시차 1, Bartlett 가중치, 소표본 보정 해제, 정규근사를 사용했다. 표본이 작아 보조 결과로 해석했다. <a href="notebook.html#diagnostics">진단 코드와 실행 결과</a></p></details>
   </section>
 
   <section id="conclusion" class="block" aria-labelledby="conclusion-title">
     <h2 id="conclusion-title">결론</h2>
-    <p><strong>핵심 발견은 효과의 크기가 아니라, 비교 기준이 결론을 만든다는 사실이다.</strong></p>
+    <p><strong>같은 2023년의 관중도 비교 기준에 따라 회복 정도가 다르게 보였다.</strong></p>
     <p>2023년의 리그 경기당 관중은 2019년 수준을 넘어섰고, 구단별 회복 정도에는 차이가 있었다. 흥행 성과를 설명할 때는 리그 평균과 증가 구단 수, 두 기준연도의 변화율을 함께 보고해야 이 차이를 전달할 수 있다. 후속 검토에서는 2019년 수준을 회복하지 못한 구단의 성적·가격·구장 정보를 확인한다.</p>
   </section>
   <section id="limitations" class="block" aria-labelledby="limitations-title">
@@ -152,7 +169,7 @@
   </section>
   <section class="block">
     <h2>분석 자료</h2>
-    <div class="resources"><a class="button" href="notebook.html">분석 코드와 실행 결과 <span aria-hidden="true">→</span></a><a href="https://github.com/dlrbehs/mlb-rule-analysis">MLB 규칙 분석 저장소와 README ↗</a><a href="mlb-analysis.ipynb" download>실행용 노트북 다운로드</a><a href="https://sabr.org/lahman-database/">원자료 · SABR Lahman Database ↗</a></div>
+    <div class="resources"><a class="button" href="notebook.html">분석 코드와 실행 결과 <span aria-hidden="true">→</span></a><a href="https://github.com/dlrbehs/mlb-rule-analysis">MLB 규칙 분석 저장소와 README ↗</a><a href="mlb-analysis.ipynb" download>실행용 노트북 다운로드</a><a href="generated/league_summary.csv" download>리그 요약 CSV</a><a href="generated/team_review.csv" download>구단 검토표 CSV</a><a href="generated/summary.json" download>분석 요약 JSON</a><a href="requirements.txt" download>실행 환경 requirements.txt</a><a href="https://sabr.org/lahman-database/">원자료 · SABR Lahman Database ↗</a></div>
     <p class="caption">2025년판 Teams.csv · Python, pandas, SciPy, statsmodels, Matplotlib</p>
   </section>
 </main>
